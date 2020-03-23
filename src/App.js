@@ -1,12 +1,14 @@
 import React from 'react';
-import AppHolder from '../src/components/AppHolder/AppHolder'
+import Form from './components/Form/Form'
+
+import './App.scss';
 
 const App = () => {
-
-  
   return (
     <div className="App">
-        <AppHolder/>
+        <h1>React forms</h1>
+        <span>Trabajo final Modulo-1</span>
+        <Form />
     </div>
   );
 }
