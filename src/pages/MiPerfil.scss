@@ -1,0 +1,13 @@
+.miperfil--container{
+    .profile--container{
+        .content--content{
+            display: flex;
+            justify-content: space-evenly;
+            .profile--image{
+                img{
+                    max-width: 200px;
+                }
+            }
+        }
+    }
+}

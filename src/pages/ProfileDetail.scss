@@ -1,0 +1,57 @@
+.profileDetail--container{
+    height: 500px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+.profile--container{
+       
+    
+    .content--content {
+        display: flex;
+        justify-content: space-evenly;    
+
+
+            .profile--image{
+                width: 150px;
+                border-radius: 50%;
+                overflow: hidden;
+                height: 150px;
+                background: #e1e1e1;
+        
+                img{
+                    max-width: 151px;
+                }
+        
+             }
+             
+            p{
+                font-family: monospace;
+                text-align: left;
+                letter-spacing: 3px;
+            }
+            
+            
+         
+            
+        }
+        .twit--container{
+            width: 50%;
+            margin: auto;
+            .frases{
+                padding: 10px;
+                border:1px solid white;
+                background: aqua;
+            }
+        }
+
+   }
+}
+
+@media screen and (min-width:600px){
+    .profile--content{
+         .menu-wrap{
+            width: 50%;
+        }
+    }
+    
+}

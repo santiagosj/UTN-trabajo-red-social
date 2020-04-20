@@ -1,23 +1,31 @@
-import React, { Component } from 'react';
+import React from 'react';
 import { Switch, Route, Redirect } from 'react-router-dom'
 import Home from '../../pages/Home'
-import Gente from '../../pages/Gente'
+
 import MiPerfil from '../../pages/MiPerfil'
+import Login from '../Auth/Login'
+import Registro from '../Auth/Registro'
+import ProfileRouter from '../ProfileSection/ProfileRouter';
+import Settings from '../../pages/Settings';
 
-class MainContent extends Component{
+const MainContent = () => {
 
-   render(){
        return(
               <div className="mainContent" >
+ 
                   <Switch>
-                      <Route exact path={'/'}component={Home}/>
-                      <Route exact path={'/page2/Gente'}component={Gente}/>
-                      <Route exact path={'/page3/MiPerfil'}component={MiPerfil}/>
+                       <Route exact path={'/'} component={Home} />
+                       <Route  path={'/profiles'} component={ProfileRouter}/>
+                       <Route exact path={'/MiPerfil'} component={MiPerfil}/>
+                       <Route exact path={'/settings'} component={Settings} />
+                       <Route exact path={'/login' } component={Login} />
+                       <Route exact path={'/signup'} component={Registro} />
+                            
                       <Redirect to="/"/>
                   </Switch>
+                   
               </div>
        )
-   }
 }
 
 export default MainContent

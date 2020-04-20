@@ -29,19 +29,62 @@ header{
                 }
             }
         }
-        span{
-            position: relative;
+        .Nav{
+            display: flex;
+            justify-content: center;
+            align-items: center;
             margin-left: auto;
-        }
-        .Image--container{
-            border-radius: 50%;
-            overflow: hidden;
-            margin-left: auto;
-            height: 55px;
-            img{
-                max-width: 55px;
+            &:hover{
+                cursor: pointer;
             }
+            a{
+                color: black;
+                text-decoration: none;
+            }
+            span{
+                position: relative;
+                margin-right: 20px;
+            }
+            .Image--container{
+                border-radius: 50%;
+                overflow: hidden;
+                margin-left: auto;
+                height: 55px;
+                &::after{
+                    content:'▼';
+                    position: fixed;
+                    top: 30px;
+                    margin-left: 6px;
+                    text-align: right;
+                    transition: .3s ease-in-out;
+                }
+                &:hover::after{
+                    transition: .3s ease-in-out;
+                    transform: rotate(90deg);
+                }
+                
+                img{
+                    max-width: 55px;
+                }
+            }
+
         }
+        .Nav-active{
+            position: absolute;
+            display: flex;
+            flex-direction: column;
+            background-color: white;
+            width: 190px;
+            justify-content: space-evenly;
+            list-style-type: none;
+            text-align: center;
+            height: 74px;
+            top: 79px;
+        }
+        .Nav-inactive{
+            display: none;
+        }
+        
     }
     
 }
