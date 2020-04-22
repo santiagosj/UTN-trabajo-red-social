@@ -16,13 +16,13 @@ const ProfileCard = ({
                          
                        <Image 
                           imgSrc={imgPreview}
-                          alt={profile.title}
+                          alt={profile.name}
                         />
 
                 </div>
                                             
                 <div>
-                    <h3> {profile.title} </h3> 
+                    <h3> {profile.name} </h3> 
                     <span>ver perfil</span> 
                 </div>
                             

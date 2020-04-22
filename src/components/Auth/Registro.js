@@ -3,6 +3,7 @@ import Form from '../Form/Form'
 import {Link} from 'react-router-dom'
 import useFormHook from '../Hooks/CustomFormHook';
 import { useHistory } from "react-router-dom";
+import { auth } from '../../firebase';
 
 const inLineStyles={
     position: "absolute",
@@ -31,6 +32,7 @@ const Registro = () => {
 
      const handleRegistro = () => {
          console.table(registro)
+         auth.userSession('createUser',registro.email, registro.password1)
          history.push("/login");
      }
 

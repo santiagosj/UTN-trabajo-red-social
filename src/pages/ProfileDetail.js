@@ -1,7 +1,8 @@
 import React,{useState,useEffect} from 'react'
 import './ProfileDetail.scss'
 import {Link} from 'react-router-dom'
-import axios from 'axios'
+//import axios from 'axios'
+import { profiles } from '../firebase/firebase'
 import Profile from '../components/ProfileSection/Profile'
 
 const ProfileDetail = ({
@@ -9,7 +10,7 @@ const ProfileDetail = ({
     }) => {
     const [ data, setData ] = useState({})
   
-    useEffect(() => {
+   /* useEffect(() => {
         async function getProfiles(){
            const result = await axios(
             `http://localhost:8001/api/profiles/${match.params.id}`,
@@ -17,8 +18,16 @@ const ProfileDetail = ({
            setData(result.data);
         }
         getProfiles()
-     }, [match]);
-      
+     }, [match]);*/
+
+     useEffect(() => {
+       const ref = profiles.doc(match.params.id);
+       ref.get().then((doc => {
+          setData(doc.data())
+       }))
+     }, [match])     
+
+      console.log(data)
     return (
         <div className='profileDetail--container'>
                       

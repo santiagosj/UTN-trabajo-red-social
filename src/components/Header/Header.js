@@ -4,7 +4,8 @@ import Image from '../Image/Image'
 import './Header.scss'
 /**
  * 
- *Escuchar estado global login logout 
+ *Escuchar estado global logout 
+ * Firebase provider con el estado de logueo
  * 
  */
 
@@ -23,6 +24,7 @@ class Header extends Component {
             ],
             signedOutLinks:[
                 {link:'/login',name:'Login'},
+                {link:'/profiles',name:'Gente'},
                 {link:'/signup',name:'SignUp'},
             ],
             subNav:[

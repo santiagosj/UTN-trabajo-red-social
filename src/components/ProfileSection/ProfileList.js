@@ -19,12 +19,13 @@ import {Link} from 'react-router-dom'
                             <div key={profile.id} >
                                 <Link to={`/profiles/${profile.id}`}>
                                      <ProfileCard 
-                                        imgPreview={require(`../../assets/${profile.imagen}`)}
+                                       // imgPreview={require(`../../assets/${profile.img}`)}
+                                        imgPreview={profile.img}
                                         profile={profile}
                                      />
                                 </Link>
                                 <Follow 
-                                    nombre={profile.title}
+                                    nombre={profile.name}
                                 />
                             </div>
 
