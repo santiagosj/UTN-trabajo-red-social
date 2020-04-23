@@ -1,7 +1,7 @@
 import * as firebase from 'firebase';
-import { devConfig } from './config';
+import { config } from './config';
 
-!firebase.apps.length && firebase.initializeApp(devConfig);
+!firebase.apps.length && firebase.initializeApp(config);
 
 const auth = firebase.auth();
 

@@ -1,24 +1,13 @@
-const devConfig = {
-    apiKey: "AIzaSyBUAoKVVTTgGpunC3r-DN5zD1sezobgv28",
-    authDomain: "react-demo-utn-tpfinal-modulo1.firebaseapp.com",
-    databaseURL: "https://react-demo-utn-tpfinal-modulo1.firebaseio.com",
-    projectId: "react-demo-utn-tpfinal-modulo1",
-    storageBucket: "react-demo-utn-tpfinal-modulo1.appspot.com",
-    messagingSenderId: "103401912210",
-    appId: "1:103401912210:web:bc548103c9e9388eeeb34b"
+const config = {
+    apiKey: process.env.REACT_APP_API_KEY,
+    authDomain: process.env.REACT_APP_AUTHDOMAIN,
+    databaseURL: process.env.REACT_APP_BASEURL,
+    projectId: process.env.REACT_APP_PROJECT_ID,
+    storageBucket: process.env.REACT_APP_STORAGEBUCKET,
+    messagingSenderId: process.env.REACT_APP_MESSAGING_SENDER_ID,
+    appId: process.env.REACT_APP_APP_ID
   };
-
-  const prodConfig = {
-    apiKey: "AIzaSyBUAoKVVTTgGpunC3r-DN5zD1sezobgv28",
-    authDomain: "react-demo-utn-tpfinal-modulo1.firebaseapp.com",
-    databaseURL: "https://react-demo-utn-tpfinal-modulo1.firebaseio.com",
-    projectId: "react-demo-utn-tpfinal-modulo1",
-    storageBucket: "react-demo-utn-tpfinal-modulo1.appspot.com",
-    messagingSenderId: "103401912210",
-    appId: "1:103401912210:web:bc548103c9e9388eeeb34b"
-  }
-
+  
   export {
-    devConfig,
-    prodConfig
+    config
   }

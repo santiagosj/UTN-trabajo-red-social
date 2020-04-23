@@ -1,16 +1,18 @@
 import React,{useState,useEffect} from 'react'
-import axios from 'axios'
+//import axios from 'axios'
 import Form from '../components/Form/Form'
 import Profile from '../components/ProfileSection/Profile'
 import './MiPerfil.scss'
 import useFormHook from '../components/Hooks/CustomFormHook';
 import { useHistory } from "react-router-dom";
 
+
 const MiPerfil = () => {
     const [data, setData] = useState('')
+    
     const history = useHistory();
 
-    useEffect(() => {
+    /*useEffect(() => {
         async function getProfiles(){
            const result = await axios(
            'http://localhost:8001/api/miperfil',
@@ -18,8 +20,8 @@ const MiPerfil = () => {
            setData(result.data);
         }
         getProfiles()
-     },[]);
-
+     },[]);*/
+    
      const [ tweet, setTweet ] = useState()
 
      useEffect(()=>{
@@ -33,6 +35,7 @@ const MiPerfil = () => {
           handleTweetData()
           
       })
+
       const handleTweet = () => {
          console.table(tweet)
          history.push("/");

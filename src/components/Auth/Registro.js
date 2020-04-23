@@ -12,6 +12,12 @@ const inLineStyles={
     fontSize: "20px"
 }
 
+/**
+ * 
+ * Crea usuario en db y registra el usuario para luego este se loguee
+ * 
+ */
+
 const Registro = () => {
 
     const [ registro, setRegistro ] = useState()
@@ -32,7 +38,7 @@ const Registro = () => {
 
      const handleRegistro = () => {
          console.table(registro)
-         auth.userSession('createUser',registro.email, registro.password1)
+         auth.userSession('createUser',registro.email ,registro.password1)
          history.push("/login");
      }
 
