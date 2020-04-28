@@ -1,7 +1,7 @@
 import React from 'react';
 import AppHolder from '../src/components/AppHolder/AppHolder'
 import {HashRouter} from 'react-router-dom'
-
+import FirebaseAuthProvider from './provider/FirebaseAuthProvider'
 /**
  * Escuchar la sesión de usuario acá
  */
@@ -10,8 +10,9 @@ const App = () => {
   
   return (
     <HashRouter className="App">
-     {/**context provider here */}
+      <FirebaseAuthProvider>
         <AppHolder />
+      </FirebaseAuthProvider>  
     </HashRouter>
   );
 

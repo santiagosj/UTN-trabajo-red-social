@@ -2,12 +2,8 @@ import React,{useState,useEffect} from 'react'
 import './AppHolder.scss';
 import Header from '../Header/Header'
 import MainContent from '../MainContent/MainContent'
+//import {firebaseAuth} from '../../provider/FirebaseAuthProvider'
 
-/**
- * 
- * escuchar el estado Auth
- * 
- */
 
 const AppHolder = () => {
 
@@ -26,14 +22,20 @@ const AppHolder = () => {
         }
      }
      
+     //const {handleSignIn} = useContext(firebaseAuth)
+
+    
+     
+     const loged = false
+
     return (
         <div className="appHolder--container">
             <Header 
                userImage={require(`../../assets/evilMorty.jpg`)} 
                classHeader={one}
-               loged={true}
+               loged={loged}
              />
-            <MainContent />
+            <MainContent loged={loged}/>
         </div>
      )
 }

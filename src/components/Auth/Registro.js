@@ -1,9 +1,9 @@
-import React,{useState,useEffect} from 'react'
+import React,{useState, useEffect, useContext} from 'react'
 import Form from '../Form/Form'
 import {Link} from 'react-router-dom'
 import useFormHook from '../Hooks/CustomFormHook';
 import { useHistory } from "react-router-dom";
-import { auth } from '../../firebase';
+import {firebaseAuth} from '../../provider/FirebaseAuthProvider'
 
 const inLineStyles={
     position: "absolute",
@@ -24,6 +24,8 @@ const Registro = () => {
     
     const history = useHistory();
 
+    const {handleSignup} = useContext(firebaseAuth)
+
      useEffect(()=>{
          
         async function handleRegistro(){
@@ -38,7 +40,7 @@ const Registro = () => {
 
      const handleRegistro = () => {
          console.table(registro)
-         auth.userSession('createUser',registro.email ,registro.password1)
+         handleSignup(registro.email, registro.password1)
          history.push("/login");
      }
 

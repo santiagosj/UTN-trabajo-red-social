@@ -1,92 +1,89 @@
-import React, { Component } from 'react'
+import React, { useState, useContext } from 'react'
 import NavItem from '../NavItem/NavItem'
 import Image from '../Image/Image'
 import './Header.scss'
-/**
- * 
- *Escuchar estado global logout 
- * Firebase provider con el estado de logueo
- * 
- */
+import { useHistory } from "react-router-dom";
+import {firebaseAuth} from '../../provider/FirebaseAuthProvider'
 
-class Header extends Component {
-     constructor(props){
-         super(props)
-         this.state = {
-            active: false
-         }
-
-         this.navigationItems = {
-            signedInLinks:[
-                {link:'/',name:'Home'},
-                {link:'/profiles',name:'Gente'},
-                {link:'/MiPerfil',name:'MiPerfil'},
-            ],
-            signedOutLinks:[
-                {link:'/login',name:'Login'},
-                {link:'/profiles',name:'Gente'},
-                {link:'/signup',name:'SignUp'},
-            ],
-            subNav:[
-                {link:'/settings',name:'Settings'},
-                {link:'/login',name:'Logout'},
-            ]
-        }
-     }
-
-     handleMenuToggle = () => this.setState({ active: !this.state.active })
-   
-    render() {
-        const { active} = this.state,
-            {loged} = this.props
+const Header = ({
+   classHeader,
+   userImage,
+   loged
+}) => {
+    const history = useHistory();
+    const [active, setActive] = useState(false)
     
-        return (
-            <header className={`${this.props.classHeader}`}>
-                 {/**TRUE */}
-                {loged && (
-                    <div className="header-conent">
-                        <h2>Rick and Morty social network</h2>
-                        <ul>
-                            {this.navigationItems.signedInLinks.map((item,i) => <NavItem key={i} data={item}/>)}
-                        </ul>
+    const {handleSignOut} = useContext(firebaseAuth)
 
-                        <div className={`Nav`} onClick={this.handleMenuToggle}>
-                            <span>Evil Morty</span>
-                            <div className="Image--container">
-                                <Image 
-                                    imgSrc={this.props.userImage}
-                                    alt={`userImage`}
-                                />
-                            </div>
-                            <div className={`${active ? 'Nav-active' : 'Nav-inactive'}`}>
-                                {this.navigationItems.subNav.map( (item, i)=> (
-                                    <NavItem 
-                                      key={i} 
-                                      data={item}
-                                    />
-                                ))}
-                            </div>
-                        </div>   
-                </div>      
-                )}
-                {/**FALSE */}
-                {!loged && (
-                    <div className="header-conent">
-                        <h2>Rick and Morty social network</h2>
-                        <ul>
-                            {this.navigationItems.signedOutLinks.map(
-                                 (item,i) => <NavItem 
-                                                 key={i} 
-                                                 data={item}
-                                              />
-                             )}
-                        </ul>
-                   </div>
-                )}
-
-            </header>
-        )
+    const handleLogout = () => {
+        handleSignOut()
+        history.push("/login");
     }
+
+    const navigationItems = {
+        signedInLinks:[
+            {link:'/',name:'Home'},
+            {link:'/profiles',name:'Gente'},
+            {link:'/MiPerfil',name:'MiPerfil'},
+        ],
+        signedOutLinks:[
+            {link:'/login',name:'Login'},
+            {link:'/signup',name:'SignUp'},
+            {link:'/profiles',name:'Gente'},
+        ],
+        subNav:[
+            { link:'/settings',name:'Settings' }
+        ]
+    }
+   
+    const handleMenuToggle = () => setActive(!active)
+
+  return(
+     <header className={classHeader}>
+         {loged && (
+            <div className="header-conent">
+               <h2>Rick and Morty social network</h2>
+                <ul>
+                    {navigationItems.signedInLinks.map((item,i) => <NavItem key={i} data={item}/>)}
+                </ul>
+
+                <div className={`Nav`} onClick={handleMenuToggle}>
+                    <span>Evil Morty</span>
+                    <div className="Image--container">
+                        <Image 
+                            imgSrc={userImage}
+                            alt={`userImage`}
+                        />
+                    </div>
+                    <div className={`${active ? 'Nav-active' : 'Nav-inactive'}`}>
+                        {navigationItems.subNav.map( (item, i)=> (
+                            <NavItem 
+                                key={i} 
+                                data={item}
+                            />
+                        ))}
+                        <button onClick={handleLogout}>logout</button>
+                    </div>
+                </div>   
+             </div>
+         )}
+         {!loged && (
+            <div className="header-conent">
+                <h2>Rick and Morty social network</h2>
+                <ul>
+                    {navigationItems.signedOutLinks.map(
+                         (item,i) => <NavItem 
+                                         key={i} 
+                                         data={item}
+                                      />
+                    )}
+                </ul>
+           </div>
+        )}
+
+     </header>
+  )
 }
+
 
 export default Header
