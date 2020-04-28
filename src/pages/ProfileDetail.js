@@ -2,7 +2,7 @@ import React,{useState,useEffect} from 'react'
 import './ProfileDetail.scss'
 import {Link} from 'react-router-dom'
 //import axios from 'axios'
-import { profiles } from '../firebase/firebase'
+import { collections } from '../firebase/firebase'
 import Profile from '../components/ProfileSection/Profile'
 
 const ProfileDetail = ({
@@ -21,7 +21,7 @@ const ProfileDetail = ({
      }, [match]);*/
 
      useEffect(() => {
-       const ref = profiles.doc(match.params.id);
+       const ref = collections.collection('profiles').doc(match.params.id);
        ref.get().then((doc => {
           setData(doc.data())
        }))

@@ -3,7 +3,7 @@ import Form from '../Form/Form'
 import {Link} from 'react-router-dom'
 import useFormHook from '../Hooks/CustomFormHook';
 import { useHistory } from "react-router-dom";
-import {firebaseAuth} from '../../provider/FirebaseAuthProvider'
+import {firebaseAuth} from '../../context/FirebaseAuthProvider'
 
 const inLineStyles={
     position: "absolute",

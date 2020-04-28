@@ -2,12 +2,14 @@ import React,{useState,useEffect} from 'react'
 import './AppHolder.scss';
 import Header from '../Header/Header'
 import MainContent from '../MainContent/MainContent'
-//import {firebaseAuth} from '../../provider/FirebaseAuthProvider'
+import firebase from 'firebase'
 
 
 const AppHolder = () => {
 
      const [one, setOne] = useState('menuOnTop')
+
+     const [loged, setAuth] = useState(false)
 
      useEffect(()=>{
          window.onscroll = () => handleAnimation()
@@ -22,11 +24,18 @@ const AppHolder = () => {
         }
      }
      
-     //const {handleSignIn} = useContext(firebaseAuth)
-
-    
+    useEffect(()=>{
+      firebase.auth().onAuthStateChanged(user => {
+          if(user){
+              setAuth(!loged)
+          }else{
+              setAuth(loged)
+          }
+      })
      
-     const loged = false
+    },[])
+    
+    console.log(loged)
 
     return (
         <div className="appHolder--container">

@@ -1,7 +1,7 @@
 import React,{useState, useEffect} from 'react';
 import ProfileList from '../components/ProfileSection/ProfileList'
 //import axios from 'axios'
-import {profiles } from '../firebase/firebase'
+import {collections } from '../firebase/firebase'
 
 
 const Gente = () => {
@@ -19,7 +19,7 @@ const Gente = () => {
      },[]);*/
 
      useEffect(() => {
-         profiles.onSnapshot(snapshot => {
+         collections.collection('profiles').onSnapshot(snapshot => {
             const result = snapshot.docs.map(doc => ({
                 id:doc.id,
               ...doc.data()

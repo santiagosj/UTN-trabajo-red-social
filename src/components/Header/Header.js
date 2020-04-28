@@ -3,7 +3,7 @@ import NavItem from '../NavItem/NavItem'
 import Image from '../Image/Image'
 import './Header.scss'
 import { useHistory } from "react-router-dom";
-import {firebaseAuth} from '../../provider/FirebaseAuthProvider'
+import {firebaseAuth} from '../../context/FirebaseAuthProvider'
 
 const Header = ({
    classHeader,

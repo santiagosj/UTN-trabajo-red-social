@@ -11,15 +11,17 @@ const handleSignup = (email,password) => {
 const handleSignIn = (email,password) => {
     console.log('context funcionando handleSignin')
     auth.userSession('signIn', email, password)
-
 }
 
 const handleSignOut = () => {
+    console.log('usuario loeged out')
     auth.logout()
 }
 
 const FirebaseAuthProvider = (props) => { 
     
+
+
     return (
         <firebaseAuth.Provider
             value={{

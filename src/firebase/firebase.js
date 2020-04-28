@@ -7,10 +7,10 @@ const auth = firebase.auth();
 
 const db = firebase.database()
 
-const profiles = firebase.firestore().collection('profiles')
+const collections = firebase.firestore()
 
 export {
   auth,
   db,
-  profiles
+  collections
 }

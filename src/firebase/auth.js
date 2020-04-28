@@ -4,22 +4,9 @@ const userSession = (action, email, password) => auth[`${action}WithEmailAndPass
   console.log(cred.user.email)
 })
 
-const logout = () => auth.signOut().then(()=>{
-  console.log('usuario loeged out')
-});
-
-const user = auth.currentUser
-
-const userLoged = () => { 
-   if(user){
-      return true
-   }else{
-      return false
-   }
-}
+const logout = () => auth.signOut()
 
 export {
     userSession,
-    logout,
-    userLoged
+    logout
   }
