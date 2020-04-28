@@ -80,6 +80,14 @@ header{
             text-align: center;
             height: 74px;
             top: 79px;
+            button{
+                font-family: monospace;
+                border: none;
+                background: transparent;
+                &:hover{
+                    cursor: pointer;
+                }
+            }
         }
         .Nav-inactive{
             display: none;

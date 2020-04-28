@@ -11,6 +11,8 @@ const AppHolder = () => {
 
      const [loged, setAuth] = useState(false)
 
+     const [userData, setUserData] = useState('')
+
      useEffect(()=>{
          window.onscroll = () => handleAnimation()
      },[one])
@@ -28,11 +30,11 @@ const AppHolder = () => {
       firebase.auth().onAuthStateChanged(user => {
           if(user){
               setAuth(!loged)
+              setUserData(user.email)
           }else{
               setAuth(loged)
           }
       })
-     
     },[])
     
     console.log(loged)
@@ -40,9 +42,10 @@ const AppHolder = () => {
     return (
         <div className="appHolder--container">
             <Header 
-               userImage={require(`../../assets/evilMorty.jpg`)} 
+               userImage={require(`../../assets/images.png`)} 
                classHeader={one}
                loged={loged}
+               userName={userData}
              />
             <MainContent loged={loged}/>
         </div>

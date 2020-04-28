@@ -8,6 +8,7 @@ import {firebaseAuth} from '../../context/FirebaseAuthProvider'
 const Header = ({
    classHeader,
    userImage,
+   userName,
    loged
 }) => {
     const history = useHistory();
@@ -48,7 +49,7 @@ const Header = ({
                 </ul>
 
                 <div className={`Nav`} onClick={handleMenuToggle}>
-                    <span>Evil Morty</span>
+                    <span>{userName}</span>
                     <div className="Image--container">
                         <Image 
                             imgSrc={userImage}
