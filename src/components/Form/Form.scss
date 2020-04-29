@@ -2,11 +2,10 @@
     display: flex;
     width: 100%;
     text-align: center;
-    
     justify-content: space-evenly;
     padding: 20px;
     align-items: center;
-    height: fit-content;
+    height: -webkit-fill-available;
     flex-wrap: wrap;
     form{
         width: 490px;
@@ -53,10 +52,9 @@
             min-width: 360px;
             width: 464px;
             margin: 0px;
-            height: 193px;
             max-width: 546px;
             min-height: 100px;
-            max-height: 200px;
+            max-height: 100px;
         }
         
     }

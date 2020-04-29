@@ -42,7 +42,7 @@ const AppHolder = () => {
     return (
         <div className="appHolder--container">
             <Header 
-               userImage={require(`../../assets/images.png`)} 
+               userImage={require(`../../assets/portal.png`)} 
                classHeader={one}
                loged={loged}
                userName={userData}

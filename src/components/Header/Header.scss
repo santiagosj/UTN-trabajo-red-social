@@ -16,6 +16,15 @@ header{
         width: 80%;
         align-items: center;
         margin: auto;
+        .logo{
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            width: 400px;
+            img{
+                width: 230px;
+            }
+        }
         ul{
             list-style: none;
             display: inherit;

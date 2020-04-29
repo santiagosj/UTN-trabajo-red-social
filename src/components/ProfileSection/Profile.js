@@ -1,15 +1,8 @@
 import React from 'react'
 import Image from '../Image/Image'
-/*import img1 from '../../assets/rick.jpg'
-import img2 from '../../assets/morty.png'
-import img3 from '../../assets/summer.jpg'
-import img4 from '../../assets/beth.jpeg'
-import img5 from '../../assets/jerry.png'
-import img6 from '../../assets/popo.jpg'
-import img7 from '../../assets/evilMorty.jpg'*/
+import img from '../../assets/images.png'
+import './Profile.scss'    
 
-//const PROFILE_IMAGE = [img1,img2,img3,img4,img5,img6,img7]
-    
 const Profile = ({
      profile
     }) => {
@@ -22,7 +15,7 @@ const Profile = ({
                         <div className='profile--image'>
                             <Image 
                                alt={`imagen de ${profile.name}`}
-                               imgSrc={profile.img}
+                               imgSrc={profile.img ? profile.img : img}
                             />
                           
                         </div>

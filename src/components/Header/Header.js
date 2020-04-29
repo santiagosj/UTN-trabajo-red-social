@@ -2,6 +2,7 @@ import React, { useState, useContext } from 'react'
 import NavItem from '../NavItem/NavItem'
 import Image from '../Image/Image'
 import './Header.scss'
+import Logo from '../../assets/logo.png'
 import { useHistory } from "react-router-dom";
 import {firebaseAuth} from '../../context/FirebaseAuthProvider'
 
@@ -43,7 +44,11 @@ const Header = ({
      <header className={classHeader}>
          {loged && (
             <div className="header-conent">
-               <h2>Rick and Morty social network</h2>
+               <div className="logo">
+                  <Image imgSrc={Logo} alt='logo'/>
+                  <h2>social network</h2>
+               </div>
+               
                 <ul>
                     {navigationItems.signedInLinks.map((item,i) => <NavItem key={i} data={item}/>)}
                 </ul>

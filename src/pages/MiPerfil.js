@@ -8,7 +8,7 @@ import { useHistory } from "react-router-dom";
 
 
 const MiPerfil = () => {
-    const [data, setData] = useState('')
+  //  const [data, setData] = useState('')
     
     const history = useHistory();
 
@@ -42,6 +42,15 @@ const MiPerfil = () => {
      }
      
      const {inputs, handleInputChange, handleSubmit} = useFormHook(handleTweet);
+
+     const data = {
+         name:'',
+         lastName:'',
+         phone:'',
+         email:'',
+         description:'',
+         city:''
+     }
 
     return (
         <div className='miperfil--container'>

@@ -15,32 +15,37 @@
             margin-bottom: 10px;
             height: fit-content;
         }
-     
-.profile--box{
-     text-align: center;
-     border:1px solid black;
-     padding:20px;
-     margin: 20px 0;
-     transition:.3s ease-in-out;
-        &:hover{
-        cursor:pointer;
-        box-shadow:1px 1px 15px 0px;
-        transition: .3s ease-in-out;
+        .profile-card{
+            background-color: #5cffff;
+            margin-bottom: 30px;
+            &:hover{
+                cursor:pointer;
+                box-shadow:1px 1px 15px 0px rgb(94, 255, 0);
+                transition: .3s ease-in-out;
+                }
+            .profile--box{
+                text-align: center;
+                border:1px solid #00000000;
+                padding:20px;
+                margin: 20px 0;
+                transition:.3s ease-in-out;
+                  
+               .profile--image{
+                   width: 207px;
+                   border-radius: 50%;
+                   overflow: hidden;
+                   height: 200px;
+                   background: #e1e1e1;
+           
+                   img{
+                       max-width: 227px;
+                   }
+           
+                }
+           
+             }
         }
-    .profile--image{
-        width: 207px;
-        border-radius: 50%;
-        overflow: hidden;
-        height: 200px;
-        background: #e1e1e1;
 
-        img{
-            max-width: 227px;
-        }
-
-     }
-
-  }
 
 }
 

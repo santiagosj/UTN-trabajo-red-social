@@ -16,7 +16,7 @@ import {Link} from 'react-router-dom'
 
                            profile.role === 'guest' && 
                          
-                            <div key={profile.id} >
+                            <div key={profile.id} className="profile-card">
                                 <Link to={`/profiles/${profile.id}`}>
                                      <ProfileCard 
                                        // imgPreview={require(`../../assets/${profile.img}`)}

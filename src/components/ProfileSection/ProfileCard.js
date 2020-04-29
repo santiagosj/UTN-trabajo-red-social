@@ -8,7 +8,7 @@ const ProfileCard = ({
 }) => {
 
     return (
-        <div>
+      
              
             <div className='profile--box'>
 
@@ -28,7 +28,7 @@ const ProfileCard = ({
                             
             </div> 
             
-        </div>
+       
     )
 }
 
