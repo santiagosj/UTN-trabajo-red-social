@@ -1,7 +1,7 @@
 import React,{useState, useEffect} from 'react';
 import ProfileList from '../components/ProfileSection/ProfileList'
 //import axios from 'axios'
-import {collections } from '../firebase/firebase'
+import {collections } from '../services/firebase/firebase'
 
 
 const Gente = () => {

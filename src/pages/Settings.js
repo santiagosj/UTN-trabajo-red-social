@@ -1,6 +1,6 @@
 import React,{useState, useEffect} from 'react'
 import Form from '../components/Form/Form'
-import useFormHook from '../components/Hooks/CustomFormHook';
+import useFormHook from '../services/Hooks/CustomFormHook';
 import { useHistory } from "react-router-dom";
 
 const Settings = () => {
@@ -17,7 +17,6 @@ const Settings = () => {
               
          }
          handleSettingsData()
-         
      })
      
      const handleSettings = () => {

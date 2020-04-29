@@ -1,7 +1,7 @@
 import React from 'react';
 import AppHolder from '../src/components/AppHolder/AppHolder'
 import {HashRouter} from 'react-router-dom'
-import FirebaseAuthProvider from './context/FirebaseAuthProvider'
+import FirebaseAuthProvider from './services/context/FirebaseAuthProvider'
 /**
  * Escuchar la sesión de usuario acá
  */

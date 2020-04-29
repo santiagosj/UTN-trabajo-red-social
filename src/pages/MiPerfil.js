@@ -3,7 +3,7 @@ import React,{useState,useEffect} from 'react'
 import Form from '../components/Form/Form'
 import Profile from '../components/ProfileSection/Profile'
 import './MiPerfil.scss'
-import useFormHook from '../components/Hooks/CustomFormHook';
+import useFormHook from '../services/Hooks/CustomFormHook';
 import { useHistory } from "react-router-dom";
 
 

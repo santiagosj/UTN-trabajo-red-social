@@ -4,7 +4,7 @@ import Image from '../Image/Image'
 import './Header.scss'
 import Logo from '../../assets/logo.png'
 import { useHistory } from "react-router-dom";
-import {firebaseAuth} from '../../context/FirebaseAuthProvider'
+import {firebaseAuth} from '../../services/context/FirebaseAuthProvider'
 
 const Header = ({
    classHeader,

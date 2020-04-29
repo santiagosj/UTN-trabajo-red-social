@@ -8,8 +8,6 @@ import Registro from '../Auth/Registro'
 import ProfileRouter from '../ProfileSection/ProfileRouter';
 import Settings from '../../pages/Settings';
 
-//escuchar firebaseAuthProvider
-
 const MainContent = ({loged}) => {
 
        return(

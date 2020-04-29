@@ -1,14 +1,5 @@
 import React from 'react'
 import './Form.scss'
-//import useFormHook from '../Hooks/CustomFormHook';
-
-/**
- * 
- * @param {
- * } param0 
- * 
- * checkeo de datos de autorizacion...
- */
 
 const Form = ({ 
     signUpForm,
