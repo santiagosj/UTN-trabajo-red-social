@@ -9,7 +9,10 @@ const inLineStyles={
     position: "absolute",
     top: "38px",
     left: "83px",
-    fontSize: "20px"
+    fontSize: "27px",
+    color: "white",
+    background: "black",
+    textDecoration: "none"
 }
 
 /**
