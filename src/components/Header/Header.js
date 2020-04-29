@@ -75,7 +75,10 @@ const Header = ({
          )}
          {!loged && (
             <div className="header-conent">
-                <h2>Rick and Morty social network</h2>
+                <div className="logo">
+                    <Image imgSrc={Logo} alt='logo'/>
+                    <h2>social network</h2>
+                </div>
                 <ul>
                     {navigationItems.signedOutLinks.map(
                          (item,i) => <NavItem 
