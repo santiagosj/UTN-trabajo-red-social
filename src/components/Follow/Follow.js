@@ -7,7 +7,7 @@ const Follow = ({nombre}) => {
 
     function handleClick(e){
         setFollow(!follow)
-        console.log(e.target.value)
+        //console.log(e.target.value)
     } 
    
     return (

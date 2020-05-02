@@ -2,7 +2,6 @@ import React,{useState, useEffect, useContext} from 'react'
 import Form from '../Form/Form'
 import {Link} from 'react-router-dom'
 import useFormHook from '../../services/Hooks/CustomFormHook';
-import { useHistory } from "react-router-dom";
 import {firebaseAuth} from '../../services/context/FirebaseAuthProvider'
 
 const inLineStyles={
@@ -15,17 +14,9 @@ const inLineStyles={
     textDecoration: "none"
 }
 
-/**
- * 
- * Crea usuario en db y registra el usuario para luego este se loguee
- * 
- */
-
 const Registro = () => {
 
     const [ registro, setRegistro ] = useState()
-    
-    const history = useHistory();
 
     const {handleSignup} = useContext(firebaseAuth)
 
@@ -43,8 +34,7 @@ const Registro = () => {
 
      const handleRegistro = () => {
          console.table(registro)
-         handleSignup(registro.email, registro.password1)
-         history.push("/login");
+         handleSignup(registro.email, registro.password1, registro.firstName, registro.lastName)
      }
 
       const {inputs, handleInputChange, handleSubmit} = useFormHook(handleRegistro);

@@ -1,5 +1,6 @@
 import React from 'react'
 import Image from '../Image/Image'
+import img from '../../assets/images.png'
 
 const ProfileCard = ({
    imgPreview,
@@ -15,7 +16,7 @@ const ProfileCard = ({
                  <div className='profile--image'>
                          
                        <Image 
-                          imgSrc={imgPreview}
+                          imgSrc={imgPreview ? imgPreview : img}
                           alt={profile.name}
                         />
 

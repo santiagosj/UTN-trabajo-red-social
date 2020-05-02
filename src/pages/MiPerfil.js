@@ -6,6 +6,10 @@ import './MiPerfil.scss'
 import useFormHook from '../services/Hooks/CustomFormHook';
 import { useHistory } from "react-router-dom";
 
+/**
+ * traer especificamente el perfil loggeado - 
+ * comparar el slug con el uid si hay match 
+ */
 
 const MiPerfil = () => {
   //  const [data, setData] = useState('')
@@ -33,7 +37,6 @@ const MiPerfil = () => {
                
           }
           handleTweetData()
-          
       })
 
       const handleTweet = () => {

@@ -100,6 +100,10 @@ const Form = ({
                                         <label>Email </label>
                                         <input type="email" name="email" onChange={handleInputChange} value={inputs.email || ''} required/>
                                     </div>
+                                    <div>
+                                       <label>Teléfono</label>
+                                       <input type="number" name="phone" onChange={handleInputChange} value={inputs.phone || ''} required/>
+                                    </div>
                                      <div>
                                         <label>Description Bio</label>
                                         <textarea 

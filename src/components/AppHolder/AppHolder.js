@@ -2,8 +2,7 @@ import React,{useState,useEffect} from 'react'
 import './AppHolder.scss';
 import Header from '../Header/Header'
 import MainContent from '../MainContent/MainContent'
-import firebase from 'firebase'
-
+import {auth} from '../../services/firebase/firebase'
 
 const AppHolder = () => {
 
@@ -27,17 +26,15 @@ const AppHolder = () => {
      }
      
     useEffect(()=>{
-      firebase.auth().onAuthStateChanged(user => {
+      auth.onAuthStateChanged(user => {
           if(user){
               setAuth(!loged)
-              setUserData(user.email)
+              setUserData(user)
           }else{
               setAuth(loged)
           }
       })
     },[])
-    
-    console.log(loged)
 
     return (
         <div className="appHolder--container">
@@ -45,7 +42,7 @@ const AppHolder = () => {
                userImage={require(`../../assets/portal.png`)} 
                classHeader={one}
                loged={loged}
-               userName={userData}
+               userName={userData.email}
              />
             <MainContent loged={loged}/>
         </div>

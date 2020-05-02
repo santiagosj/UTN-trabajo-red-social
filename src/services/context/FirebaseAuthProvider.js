@@ -3,25 +3,23 @@ import { auth } from '../firebase';
 
 export const firebaseAuth = createContext()
 
-const handleSignup = (email,password) => {
-    console.log('context funcionando handleSignup')
-    auth.userSession('createUser',email,password)
+const handleSignup = (email, password, ...inputs) => {
+    console.log('usuario registrado')
+    auth.userSession('createUser',email, password, ...inputs)
 }
 
-const handleSignIn = (email,password) => {
-    console.log('context funcionando handleSignin')
+const handleSignIn = (email, password) => {
+    console.log('usuario logueado')
     auth.userSession('signIn', email, password)
 }
 
 const handleSignOut = () => {
-    console.log('usuario loeged out')
+    console.log('el suario cerró sesión')
     auth.logout()
 }
 
 const FirebaseAuthProvider = (props) => { 
     
-
-
     return (
         <firebaseAuth.Provider
             value={{
@@ -29,8 +27,8 @@ const FirebaseAuthProvider = (props) => {
                handleSignIn,
                handleSignOut
             }}>
-      {props.children}
-    </firebaseAuth.Provider>
+               {props.children}
+        </firebaseAuth.Provider>
     )
 }
 

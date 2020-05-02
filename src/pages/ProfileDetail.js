@@ -2,7 +2,7 @@ import React,{useState,useEffect} from 'react'
 import './ProfileDetail.scss'
 import {Link} from 'react-router-dom'
 //import axios from 'axios'
-import { collections } from '../services/firebase/firebase'
+import { db } from '../services/firebase/firebase'
 import Profile from '../components/ProfileSection/Profile'
 
 const ProfileDetail = ({
@@ -19,15 +19,17 @@ const ProfileDetail = ({
         }
         getProfiles()
      }, [match]);*/
-
+     
      useEffect(() => {
-       const ref = collections.collection('profiles').doc(match.params.id);
-       ref.get().then((doc => {
-          setData(doc.data())
-       }))
+       db.doc(`profiles/${match.params.id}`)
+       .get()
+          .then( doc => {
+           setData(doc.data())
+       })
+
      }, [match])     
 
-      console.log(data)
+      //console.log(data)
     return (
         <div className='profileDetail--container'>
                       

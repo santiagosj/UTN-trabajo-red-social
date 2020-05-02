@@ -1,8 +1,7 @@
 import React,{useState, useEffect} from 'react';
 import ProfileList from '../components/ProfileSection/ProfileList'
 //import axios from 'axios'
-import {collections } from '../services/firebase/firebase'
-
+import {db } from '../services/firebase/firebase'
 
 const Gente = () => {
 
@@ -17,18 +16,21 @@ const Gente = () => {
         }
         getProfiles()
      },[]);*/
+     
+      //pasar con el context the auth la lista de perfiles ya filtrada
 
      useEffect(() => {
-         collections.collection('profiles').onSnapshot(snapshot => {
+         db.collection('profiles').onSnapshot(snapshot => {
             const result = snapshot.docs.map(doc => ({
-                id:doc.id,
+                id: doc.id,
               ...doc.data()
             }))
             setData({profiles:result})
           })
       }, [])
 
-     //console.log(data)
+      // console.log(data)
+
     return (
         <div>
             <h1>Gente que tal vez conozcas</h1>

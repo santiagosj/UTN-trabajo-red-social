@@ -1,11 +1,22 @@
-import React from 'react'
+import React,{useState, useEffect} from 'react'
 import Image from '../Image/Image'
 import img from '../../assets/images.png'
 import './Profile.scss'    
+import { auth } from '../../services/firebase/firebase'
 
 const Profile = ({
      profile
     }) => {
+
+        const [currentUser, setCurrentUser] = useState('')
+
+        useEffect(()=>{
+            auth.onAuthStateChanged(user=>{
+                if(user){
+                    setCurrentUser(user.uid)
+                }
+            })
+        },[])
         
     return (
         <div className='profile--container'>
@@ -17,7 +28,6 @@ const Profile = ({
                                alt={`imagen de ${profile.name}`}
                                imgSrc={profile.img ? profile.img : img}
                             />
-                          
                         </div>
                             
                         <div className='profile--description'>
@@ -30,7 +40,7 @@ const Profile = ({
                            
                     </div>   
                   {   
-                    profile.role === 'guest' && (
+                     profile.tweets !== undefined && profile.slug !== currentUser && (
                         <div className="twit--container">
                             Tweets: 
                             {profile.tweets.map( (tweet,i) => <p className='frases' key={i}>{tweet}</p>)}
