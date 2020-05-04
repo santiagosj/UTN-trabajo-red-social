@@ -5,15 +5,24 @@ import Profile from '../components/ProfileSection/Profile'
 import './MiPerfil.scss'
 import useFormHook from '../services/Hooks/CustomFormHook';
 import { useHistory } from "react-router-dom";
+import { db, auth } from '../services/firebase/firebase';
+
 
 /**
- * traer especificamente el perfil loggeado - 
- * comparar el slug con el uid si hay match 
+ * 1 - traer especificamente el perfil loggeado - 
+ * comparar el slug con el uid si hay match.
+ * 2 - actualizar los tweets del usuario loggeado
+ *   
  */
 
 const MiPerfil = () => {
-  //  const [data, setData] = useState('')
     
+    const [ tweet, setTweet ] = useState([])
+   
+    const [currentUser, setCurrentUser] = useState({})
+    
+    const [userDocId, setUserDocId] = useState('')
+
     const history = useHistory();
 
     /*useEffect(() => {
@@ -26,7 +35,7 @@ const MiPerfil = () => {
         getProfiles()
      },[]);*/
     
-     const [ tweet, setTweet ] = useState()
+   
 
      useEffect(()=>{
          async function handleTweetData(){
@@ -39,27 +48,42 @@ const MiPerfil = () => {
           handleTweetData()
       })
 
+      useEffect(()=>{
+         auth.onAuthStateChanged(authUser => {
+             db.collection('profiles').onSnapshot(snapshot => {
+                 if(authUser){
+                    const result = snapshot.docs.map(doc => ({
+                        id:doc.id,
+                        slug:doc.get('slug')
+                    })).filter(uid => uid.slug === authUser.uid)
+                    const docIdAuthUser = result.map(userId => userId.id).join()
+                    setUserDocId(docIdAuthUser)
+                    console.log(userDocId)
+                    db.doc(`profiles/${docIdAuthUser}`)
+                      .get()
+                      .then(doc => {
+                          setCurrentUser(doc.data())
+                      })
+                 }
+             })
+         })
+      },[userDocId])
+
       const handleTweet = () => {
+         db.doc(`profiles/${userDocId}`).set({
+             tweets:[tweet.tweet]
+         },{merge:true})
          console.table(tweet)
          history.push("/");
-     }
+      }
      
      const {inputs, handleInputChange, handleSubmit} = useFormHook(handleTweet);
-
-     const data = {
-         name:'',
-         lastName:'',
-         phone:'',
-         email:'',
-         description:'',
-         city:''
-     }
 
     return (
         <div className='miperfil--container'>
             <h1> Mi perfil</h1>
 
-                <Profile profile={data} />
+                <Profile profile={currentUser} />
              
                 <Form 
                     twitForm

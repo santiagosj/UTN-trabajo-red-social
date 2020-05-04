@@ -70,9 +70,9 @@ const Form = ({
                                      <div>
                                         <textarea 
                                             type="text" 
-                                            name="twit" 
+                                            name="tweet" 
                                             onChange={handleInputChange} 
-                                            value={inputs.twit || ''} 
+                                            value={inputs.tweet || ''} 
                                             placeholder={`En qué estás pensando?...`}/>
                                     </div>
                                  <br/>
@@ -104,13 +104,17 @@ const Form = ({
                                        <label>Teléfono</label>
                                        <input type="number" name="phone" onChange={handleInputChange} value={inputs.phone || ''} required/>
                                     </div>
+                                    <div>
+                                       <label>Ciudad</label>
+                                       <input type="text" name="ciudad" onChange={handleInputChange} value={inputs.ciudad || ''} required/>
+                                    </div>
                                      <div>
                                         <label>Description Bio</label>
                                         <textarea 
                                            type="text"
-                                           name="setDescription"
+                                           name="description"
                                            onChange={handleInputChange} 
-                                           value={inputs.setDescription || ''}
+                                           value={inputs.description || ''}
                                            placeholder="bio..."
                                         />
                                      </div>

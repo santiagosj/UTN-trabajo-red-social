@@ -1,22 +1,15 @@
-import React,{useState, useEffect} from 'react'
+import React from 'react'
 import './ProfileSection.scss'
 import ProfileCard from './ProfileCard'
 import Follow from '../Follow/Follow'
 import {Link} from 'react-router-dom'
-import { auth } from '../../services/firebase/firebase'
+//import { auth } from '../../services/firebase/firebase'
 //traer acá user.uid y compararlo con profile.slug
 
- const ProfileList = ({profiles}) => {   
-
-     const [userSlug, setUserSlug] = useState()
-    
-     useEffect(()=> {
-        auth.onAuthStateChanged(user => {
-            if(user){
-                setUserSlug(user.uid)
-            }
-        })
-     },[])
+ const ProfileList = ({
+       profiles,
+       authUser
+    }) => {   
     
       return (
 
@@ -26,7 +19,7 @@ import { auth } from '../../services/firebase/firebase'
                      <div className="profiles--container">
                         {profiles.map(profile => (
 
-                            profile.slug !== userSlug &&
+                            profile.slug !== authUser &&
 
                             <div key={profile.id} className="profile-card">
                                 <Link to={`/profiles/${profile.id}`}>
