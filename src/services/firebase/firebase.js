@@ -5,11 +5,12 @@ import { config } from './config';
 
 const auth = firebase.auth();
 
-//const db = firebase.database()
-
 const db = firebase.firestore()
+
+const storage = firebase.storage()
 
 export {
   auth,
-  db
+  db,
+  storage
 }

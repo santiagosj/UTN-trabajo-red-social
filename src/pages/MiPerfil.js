@@ -35,8 +35,6 @@ const MiPerfil = () => {
         getProfiles()
      },[]);*/
     
-   
-
      useEffect(()=>{
          async function handleTweetData(){
              
@@ -58,7 +56,7 @@ const MiPerfil = () => {
                     })).filter(uid => uid.slug === authUser.uid)
                     const docIdAuthUser = result.map(userId => userId.id).join()
                     setUserDocId(docIdAuthUser)
-                    console.log(userDocId)
+                    //console.log(userDocId)
                     db.doc(`profiles/${docIdAuthUser}`)
                       .get()
                       .then(doc => {
@@ -73,7 +71,7 @@ const MiPerfil = () => {
          db.doc(`profiles/${userDocId}`).set({
              tweets:[tweet.tweet]
          },{merge:true})
-         console.table(tweet)
+         //console.table(tweet)
          history.push("/");
       }
      

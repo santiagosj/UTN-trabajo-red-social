@@ -8,6 +8,7 @@ const Form = ({
     settings,
     handleSubmit,
     handleInputChange,
+    handleOnChangeFile,
     inputs
     }) => {
     
@@ -122,9 +123,7 @@ const Form = ({
                                         <label>Imagen</label>
                                         <input 
                                            type="file" 
-                                           onChange={handleInputChange} 
-                                           name="img"
-                                           value={inputs.img || ''}
+                                           onChange={handleOnChangeFile} 
                                          />
                                      </div>
                                      <button type="submit">Guardar Cambios</button>
