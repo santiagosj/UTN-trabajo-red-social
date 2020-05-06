@@ -13,6 +13,8 @@ const Settings = () => {
 
     const [userDocId, setUserDocId] = useState('')
 
+    const [uploadValue, setUploadVelue] = useState()
+
     const [fileName, setFile] = useState('')
 
      const history = useHistory();
@@ -48,20 +50,36 @@ const Settings = () => {
          }
          handleSettingsData()
      })
-     
-     const handleSettings = (e) => {
-        
-        /*const path = settings.img
-        
-        const fileName = path.replace(/^.*\\/, "");*/
-        
+
+     const handleFile = (e) => {
         const file = e.target.files[0]
 
         const storageRef = storage.ref(`foto_profiles/${file.name}`)
 
         const task = storageRef.put(file)
 
-        task.on('state_changed',(error)=>{console.log(error)},()=>{setFile(task.snapshot.downloadURL)})
+        task.on('state_changed',(snapshot)=>{
+            let percentage = (snapshot.bytesTransferred / snapshot.totalBytes) * 100
+            setUploadVelue(percentage)
+        },
+        (error)=>{
+             console.log(error)},
+        ()=>{
+             storageRef.getDownloadURL().then((url)=> {
+                //console.log(url)
+                setFile(url)  
+            })             
+        })
+        
+     }
+
+    // console.log(fileName)
+
+     const handleSettings = () => {
+        
+        /*const path = settings.img
+        
+        const fileName = path.replace(/^.*\\/, "");*/
 
         db.doc('profiles/' + userDocId)
           .set({
@@ -71,12 +89,11 @@ const Settings = () => {
               phone:settings.phone,
               address:settings.ciudad,
               img: fileName
-          },{merge:true}).then(doc => {
-              console.log(doc)
+          },{merge:true}).then(() => {
               history.push('/MiPerfil')
           })
      
-        console.log(storageRef.name, fileName)
+        console.log(fileName)
 
      }
 
@@ -89,8 +106,9 @@ const Settings = () => {
                 settings 
                 handleSubmit={handleSubmit}
                 handleInputChange={handleInputChange}
-                handleOnChangeFile={handleSettings}
+                handleOnChangeFile={handleFile}
                 inputs={inputs}
+                progress={uploadValue}
             />
         </div>
     )

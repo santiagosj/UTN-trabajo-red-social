@@ -9,7 +9,8 @@ const Form = ({
     handleSubmit,
     handleInputChange,
     handleOnChangeFile,
-    inputs
+    inputs,
+    progress
     }) => {
     
         return (
@@ -125,6 +126,7 @@ const Form = ({
                                            type="file" 
                                            onChange={handleOnChangeFile} 
                                          />
+                                         <progress value={progress} max='100'>{progress} % </progress>
                                      </div>
                                      <button type="submit">Guardar Cambios</button>
                                  </form>
