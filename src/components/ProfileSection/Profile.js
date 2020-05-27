@@ -48,7 +48,6 @@ const Profile = ({
                         )
                      
                    }
-
         </div>
     )
 }

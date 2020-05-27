@@ -9,8 +9,6 @@ const ProfileCard = ({
 }) => {
 
     return (
-      
-             
             <div className='profile--box'>
 
                  <div className='profile--image'>
@@ -28,8 +26,6 @@ const ProfileCard = ({
                 </div>
                             
             </div> 
-            
-       
     )
 }
 

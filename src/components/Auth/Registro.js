@@ -34,7 +34,7 @@ const Registro = () => {
 
      const handleRegistro = () => {
          console.table(registro)
-         handleSignup(registro.email, registro.password1, registro.firstName, registro.lastName)
+         handleSignup(registro.email, registro.password1)
      }
 
       const {inputs, handleInputChange, handleSubmit} = useFormHook(handleRegistro);
